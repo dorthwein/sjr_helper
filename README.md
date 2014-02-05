@@ -7,7 +7,7 @@ sjr-helper is a rails plugin that adds several helpers that make rails fields op
 
 ## Installation
 Add to bundler: 
-gem 'sjr_helper', git: 'https://github.com/dorthwein/sjr_helper'
+`gem 'sjr_helper', git: 'https://github.com/dorthwein/sjr_helper'`
 
 ## Useage
 ### In Controller
@@ -20,7 +20,6 @@ This response will first update all of the *sjr_tag* in the dom then render the 
 
 ### In Views
 **Display a field:** 
-
 `<%= sjr_tag object, field, options={} %>`
 This tag is not editable but will be updated if the model instance's field is updated using `format.js { respond_with_sjr( object ) }`
 
