@@ -28,16 +28,18 @@ var SjrEditor = function(e) {
 //	this.bindForm();
 //	$().on('click', function(){alert('t')});
 	
+	
 	if(editor.display_field.data('sjrActivator') != false){
+		// If display field not false - then set to value.
 		editor.activator = $(editor.display_field.data('sjrActivator'));
-		console.log(editor.activator)
-	} else if( $('[data-sjr-activator-tag="true"][data-sjr-class="' + editor.class_name + '"][data-sjr-field="'+ editor.field +'"][data-sjr-id="' + editor.object_id + '"]').length ){
+		alert('t')
+	} else if( $('[data-sjr-activator-tag="true"][data-sjr-class="' + editor.class_name + '"][data-sjr-field="'+ editor.field +'"][data-sjr-id="' + editor.object_id + '"]').length ){		
 		editor.activator = $('[data-sjr-activator-tag="true"][data-sjr-class="' + editor.class_name + '"][data-sjr-field="'+ editor.field +'"][data-sjr-id="' + editor.object_id + '"]');
 	} else { 
-		editor.activator = editor.display_field;
+		editor.activator = editor.display_field;		
 	}	
 	
-	editor.activator.on('click', function(){	
+	editor.activator.on('click', function(){			
 		editor.activate();
 	})
 	
@@ -50,8 +52,8 @@ var SjrEditor = function(e) {
 			editor.deactivate();
 		}
 		if (ev.keyCode == 13 || ev.keyCode == 9){
-			editor.deactivate();
-			editor.send()
+			editor.send();
+			editor.deactivate();			
 
 		}			
 	})	
@@ -93,48 +95,6 @@ jQuery.fn.sjr_edit = function() {
 
 
 
-$(document).ready(function(){
+$(document).on('page:change', function(){ 
 	$('[data-sjr-editable="true"]').sjr_edit()//each(function(index, element){ 
-		
-//		var object_id = $(element).data('sjr-id')
-//		var class_name = $(element).data('sjr-class')		
-//		var field = $(element).data('sjr-field')
-//
-//		var form = $('form[data-sjr-id="'+ object_id +'"][data-sjr-field="'+ field + '"][data-sjr-class="'+ class_name +'"]')
-//		var input = $('[data-sjr-input="true"][data-sjr-field="'+ field + '"][data-sjr-id="'+ object_id +'"][data-sjr-class="'+ class_name +'"]')
-//
-//		if($(element).data('sjr-activator') == false){
-//			activator = $(element) 
-//		} else { activator = $($(element).data('sjr-activator')) }
-//
-//		$(activator).on('click', function(){
-//			show_form()
-//		})
-//
-//		var show_form = function(){
-//			$(activator).hide();
-//			$(element).hide();
-//			$(form).show();
-// 		}
-//		var hide_form = function(){		
-//			$(activator).show();
-//			$(element).show();
-//			$(form).hide();
-//		}
-//
-//		$(form).submit(function(){
-//			hide_form();
-//		});
-//		$(input).blur(function(){
-//			hide_form();
-//		});		
-//		$(document).keyup(function(e) {
-//			if (e.keyCode == 27 && $(input).is(":focus")){
-//				hide_form();
-//			}
-//			if (e.keyCode == 13 && $(input).is(":focus")){
-//				$(form).submit();
-//			}			
-//		})
-//	})
 })

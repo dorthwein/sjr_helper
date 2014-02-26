@@ -1,0 +1,17 @@
+// If parent does exist - set scope to parent - else set to document
+<% unless opts[:template_path].nil? %>
+	var selector = '[data-sjr-collection="true"][data-sjr-class="<%= j(object.class.to_s) %>"]'
+	var html = "<%= j(render(partial: opts[:template_path], locals: opts[:template_locals])) %>"
+	<% if !opts[:parent].nil? %>
+		var element = $('[data-sjr-object="true"][data-sjr-id="<%= j(opts[:parent].id.to_s) %>"][data-sjr-class="<%= j(opts[:parent].class.to_s) %>"] ' + selector )
+	<% else %>
+		var element = $(selector)
+	<% end %>
+	element.append(html)
+
+<% end %>
+// Render App View
+<%= render template: "#{controller_path}/#{action_name}" rescue nil %>
+
+// Intiatie Tags
+$('[data-sjr-editable="true"]').sjr_edit();

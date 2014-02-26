@@ -6,9 +6,14 @@ sjr-helper is a rails plugin that adds several helpers that make rails fields op
 
 
 ## Installation
-Add to bundler: 
-
+###Add to bundler:
 `gem 'sjr_helper', git: 'https://github.com/dorthwein/sjr_helper'`
+
+### Add to JS
+`
+//= require jquery
+//= require sjr_helper
+`
 
 ## Useage
 ### In Controller

@@ -1,5 +1,9 @@
 <% object.attributes.each do |attr_name, attr_value| %>
+	<% if attr_name == params[:display_field] %>
+		<% attr_value = object.send(params[:display_as]) %>
+	<% end %>
 	$('[data-sjr-display-tag="true"][data-sjr-id="<%= j(object.id.to_s) %>"][data-sjr-field="<%= attr_name %>"][data-sjr-class="<%= j(object.class.to_s) %>"]').html("<%= attr_value %>");
 <% end %>
 <%= render template: "#{controller_path}/#{action_name}" rescue nil %>
+$('[data-sjr-editable="true"]').sjr_edit();
 
