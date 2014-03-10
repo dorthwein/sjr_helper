@@ -8,10 +8,10 @@
 		var element = $(selector)
 	<% end %>
 	element.append(html)
-
 <% end %>
+
 // Render App View
 <%= render template: "#{controller_path}/#{action_name}" rescue nil %>
-
+console.log('loading <%= "#{controller_path}/#{action_name}" %>')
 // Intiatie Tags
 $('[data-sjr-editable="true"]').sjr_edit();

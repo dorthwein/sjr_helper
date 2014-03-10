@@ -59,6 +59,7 @@ module SjrHelper
 		def sjr_delete_tag object, options={} #, form_options={}
 			label = options[:label] ||= "<i class='fa fa-times'></i>".html_safe
 			form_defaults = {remote: true, method: :delete}
+			options[:form] ||= {}
 			options[:form] = options[:form].merge(form_defaults)
 
 			form_for(object, options[:form]) do |f|
